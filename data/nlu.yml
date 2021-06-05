@@ -1,0 +1,180 @@
+version: "2.0"
+
+nlu:
+- intent: init_request
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - yo
+    - I want pizza
+    - I want to order a pizza
+    - I wnt to ordr a pijja
+    - I wntt piza
+    - pizza
+    - pizza please
+    - Pizza please
+    - Pizza will do
+    - pizza will do
+    - Pizza
+    - pijja
+    - pija
+    - pijaa
+    - order
+    - menu
+    - do you have pizza ?
+
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+- intent: complete_order
+  examples: |
+    - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza 
+    - I want [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza 
+    - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)  
+    - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
+    - [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizza 
+    - [2](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizza 
+
+
+- intent: want_pizza_type
+  examples: |
+    - [Funghi](pizza_type) pizza 
+    - I want [Funghi](pizza_type)
+    - do you have [Funghi](pizza_type)
+    - I need [Funghi](pizza_type)
+    - get me a [Funghi](pizza_type)
+    - order for me a [Funghi](pizza_type)
+
+- intent: want_pizza_size
+  examples: |
+    - [small](pizza_size) pizza 
+    - I want [small](pizza_size)
+    - do you have [small](pizza_size)
+    - I need [small](pizza_size)
+    - get me a [small](pizza_size)
+    - order for me a [small](pizza_size)
+
+- intent: want_extra_topping
+  examples: |
+    - [paneer](pizza_topping)
+    - I would like to add [paneer](pizza_topping)
+    - [paneer](pizza_topping) pizza 
+    - I want [paneer](pizza_topping)
+    - do you have [paneer](pizza_topping)
+    - I need [paneer](pizza_topping)
+    - get me a [paneer](pizza_topping)
+    - order for me a [paneer](pizza_topping)
+
+- intent: want_pizza_quantity
+  examples: |
+    - [3](pizza_quantity)
+    - I want [3](pizza_quantity) pizza
+
+- intent: response_positive
+  examples: |
+    - all good
+    - yeah all is sgood 
+    - yep
+    - yeah
+    - perfect
+    - yes, that is right
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - that's right
+    - correct
+    - Yes
+    - Yeah
+
+- intent: response_negative
+  examples: |
+    - actually no
+    - nope
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - Nope
+    - No, I want to make a change
+    - Noo
+
+
+- lookup: pizza_type
+  examples: |
+    - Farmhouse
+    - farmhouse
+    - Exotic Chilly
+    - Chicken Sausage
+    - Margherita
+
+
+- lookup: pizza_size
+  examples: |
+    - Regular
+    - Medium
+    - Large
+    - Extra Large
+
+- lookup: pizza_topping
+  examples: |
+    - Chicken
+    - paneer
+    - Tomatoes
+    - Mushroom
+    - corn
+    - olives
+    - onion
+    - capsicum
+
+- lookup: pizza_quantity
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - one
+    - two
+    - three
+    - four

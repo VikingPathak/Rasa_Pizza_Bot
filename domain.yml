@@ -1,0 +1,51 @@
+version: "2.0"
+
+intents:
+  - init_request
+  - goodbye
+  - utter_sad_goodbye
+  - response_positive
+  - response_negative
+  - complete_order
+  - bot_challenge
+  - want_pizza_type
+  - want_pizza_size
+  - want_extra_topping
+  - want_pizza_quantity
+
+
+responses:
+  utter_greet:
+  - text: "Hey! Hope you are doing good!"
+
+  utter_menu:
+  - text: "What would you like to have today? We have a range of pizzas to select from.\nFarmhouse\nExotic Chilly\nChicken Sausage, etc"
+
+  utter_pizza_size:
+  - text: "What pizza size do you want? \nRegular | Medium | Large | Extra Large"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_extra_topping:
+  - text: "Do you want extra toppings to multiply your happiness?"
+
+  utter_topping_choices:
+  - text: "Today, We have Paneer, Tomatoes, Mushroom and Chicken in extra topping. What would you like?"
+
+  utter_pizza_quantity:
+  - text: "How many pizza do you need? Make sure you don't fight later! : P"
+
+  utter_order_confirmation:
+  - text: "Do you want to confirm your order?"
+
+  utter_sad_goodbye:
+  - text: ":( We were hoping to make you happy today. See you next time!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_order_placed:
+  - text: "Thankyou for ordering with us. You pizza will arrive in 30 minutes."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
