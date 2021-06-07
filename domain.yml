@@ -28,9 +28,6 @@ responses:
   utter_extra_topping:
   - text: "Do you want extra toppings to multiply your happiness?"
 
-  utter_topping_choices:
-  - text: "Today, We have Paneer, Tomatoes, Mushroom and Chicken in extra topping. What would you like?"
-
   utter_pizza_quantity:
   - text: "How many pizza do you need? Make sure you don't fight later! : P"
 
