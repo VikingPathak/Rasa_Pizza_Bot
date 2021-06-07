@@ -3,129 +3,59 @@ version: "2.0"
 stories:
 
 
-- story: order_story_1
+- story: display the greeting menu
   steps:
   - intent: init_request
   - action: utter_greet
   - action: utter_menu
+  - checkpoint: ask_pizza_type
+
+
+- story: standard order flow
+  steps:
+  - checkpoint: ask_pizza_type
   - intent: want_pizza_type
   - action: utter_pizza_size
   - intent: want_pizza_size
-  - action: utter_extra_topping
-  - intent: response_positive
-  - action: utter_topping_choices
-  - intent: want_extra_topping
   - action: utter_pizza_quantity
   - intent: want_pizza_quantity
+  - action: utter_extra_topping
+  - checkpoint: confirm_topping
+
+
+- story: user places complete order
+  steps:
+  - checkpoint: ask_pizza_type
+  - intent: complete_order
+  - action: utter_extra_topping
+  - checkpoint: confirm_topping
+  
+
+- story: users wants topping
+  steps:
+  - checkpoint: confirm_topping
+  - intent: response_positive
   - action: utter_order_confirmation
+  - checkpoint: confirm_order
+
+
+- story: user does not want topping
+  steps:
+  - checkpoint: confirm_topping
+  - intent: response_negative
+  - action: utter_order_confirmation
+  - checkpoint: confirm_order
+
+
+- story: user confirms order
+  steps:
+  - checkpoint: confirm_order
   - intent: response_positive
   - action: utter_order_placed
 
 
-- story: order_story_2
+- story: user denies order
   steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: want_pizza_type
-  - action: utter_pizza_size
-  - intent: want_pizza_size
-  - action: utter_extra_topping
-  - intent: response_negative
-  - action: utter_pizza_quantity
-  - intent: want_pizza_quantity
-  - action: utter_order_confirmation
-  - intent: response_positive
-  - action: utter_order_placed
-
-
-- story: order_story_3
-  steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: complete_order
-  - action: utter_extra_topping
-  - intent: response_negative
-  - action: utter_order_confirmation
-  - intent: response_positive
-  - action: utter_order_placed
-
-
-- story: order_story_4
-  steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: complete_order
-  - action: utter_extra_topping
-  - intent: response_positive
-  - action: utter_topping_choices
-  - intent: want_extra_topping
-  - action: utter_order_confirmation
-  - intent: response_positive
-  - action: utter_order_placed
-
-
-- story: order_story_5
-  steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: want_pizza_type
-  - action: utter_pizza_size
-  - intent: want_pizza_size
-  - action: utter_extra_topping
-  - intent: response_positive
-  - action: utter_topping_choices
-  - intent: want_extra_topping
-  - action: utter_pizza_quantity
-  - intent: want_pizza_quantity
-  - action: utter_order_confirmation
-  - intent: response_negative
-  - action: utter_sad_goodbye
-
-
-- story: order_story_6
-  steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: want_pizza_type
-  - action: utter_pizza_size
-  - intent: want_pizza_size
-  - action: utter_extra_topping
-  - intent: response_negative
-  - action: utter_pizza_quantity
-  - intent: want_pizza_quantity
-  - action: utter_order_confirmation
-  - intent: response_negative
-  - action: utter_sad_goodbye
-
-
-- story: order_story_7
-  steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: complete_order
-  - action: utter_extra_topping
-  - intent: response_negative
-  - action: utter_order_confirmation
-  - intent: response_negative
-  - action: utter_sad_goodbye
-
-
-- story: order_story_8
-  steps:
-  - intent: init_request
-  - action: utter_greet
-  - action: utter_menu
-  - intent: complete_order
-  - action: utter_extra_topping
-  - intent: response_positive
-  - action: utter_topping_choices
-  - intent: want_extra_topping
-  - action: utter_order_confirmation
+  - checkpoint: confirm_order
   - intent: response_negative
   - action: utter_sad_goodbye
